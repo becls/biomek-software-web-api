@@ -1,0 +1,2138 @@
+{
+  "openapi": "3.1.1",
+  "info": {
+    "title": "Biomek Software Web API",
+    "description": "REST API for remotely monitoring and controlling the Biomek software from another computer or automation controller. It is available when the BiomekWebApi Windows Service is installed and running on the Biomek workstation.\n\n## Authentication\n\nDepending on how the service is configured, requests may require an API key. If authentication is enabled, include the `X-Api-Key` header with every request, set to the key provided by the system administrator. Requests with a missing or unrecognized key receive HTTP 401.\n\n## Versioning\n\nClients may request a specific API version by sending an `X-Api-Version` header (e.g. `X-Api-Version: 1.0`). If the header is omitted, the latest available version is assumed. The `api-supported-versions` response header on each response lists the API versions supported by that endpoint.\n\n## Response format\n\nAll endpoints return JSON. Successful responses use HTTP 200 or HTTP 202 (Accepted).\n\n## Errors\n\nThe API returns appropriate HTTP status codes to indicate errors. Error responses include additional information in a JSON response body. See the response descriptions on each endpoint for the status codes it may return.",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://{host}:8080",
+      "variables": {
+        "host": {
+          "default": "localhost",
+          "description": "Host where BiomekWebApi.Service is running"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/instruments/{instrumentName}/dialogs": {
+      "get": {
+        "tags": [
+          "Dialogs"
+        ],
+        "summary": "List the dialogs that are currently active on the specified instrument.",
+        "description": "Returns every dialog currently open in the Biomek editor process associated with the named instrument, keyed by dialog id. Each dialog lists the buttons available to click (`options`), whether it has a field for user input (`requiresTextInput`), and whether it shows an image (`hasImage`) that can be retrieved from the linked image endpoint.\n\nThe result is empty when no dialogs are currently active.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of currently open dialogs.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/Dialog"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while retrieving the open dialogs.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/dialogs/{dialogId}/respond": {
+      "post": {
+        "tags": [
+          "Dialogs"
+        ],
+        "summary": "Send a response to the given dialog.",
+        "description": "Sends a response to the named dialog in the Biomek editor process associated with the named instrument. `option` must be one of the buttons listed for the dialog by `GET /instruments/{instrumentName}/dialogs`; it is matched ignoring case and surrounding whitespace. `input` is required for dialogs that have a field for user input (`requiresTextInput: true`) and is ignored otherwise.\n\nA successful call returns HTTP 200; the editor processes the response synchronously and sends a dialogDismissed status event before returning.\n\nResponding to a dialog that has already been dismissed is answered from a short history of recent dismissals. A response asking for the outcome the dialog already reached returns HTTP 200, so a client that retries a request sees the same result as the first attempt. A response asking for a different outcome returns HTTP 409. Once a dismissal ages out of that history the dialog is indistinguishable from one that never existed, and both cases return HTTP 404.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dialogId",
+            "in": "path",
+            "description": "Identifier of the dialog to respond to.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "requestBody": {
+          "description": "The chosen option and, for input dialogs, the supplied input.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DialogResponse"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DialogResponse"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DialogResponse"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Dialog response processed.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument or dialog not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The dialog was already dismissed with a different response.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "The supplied option or input is not valid for this dialog.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while responding to the dialog.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/dialogs/{dialogId}/image": {
+      "get": {
+        "tags": [
+          "Dialogs"
+        ],
+        "summary": "Get the image that is shown by the given dialog in the Biomek editor.",
+        "description": "Returns the image currently displayed in the Biomek editor by the requested dialog in `image/bmp` format. On first request, the BMP is cached; subsequent requests for the same dialog are answered from that cache without calling the Biomek editor again. The cache is cleared the moment the dialog is dismissed, so a request made after that point behaves the same as one for a dialog that never existed. Returns HTTP 404 if the instrument does not exist, if the dialog does not exist (for example, because it was already dismissed), or if the dialog exists but has no image. The response does not distinguish between these cases.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dialogId",
+            "in": "path",
+            "description": "Identifier of the dialog whose image should be retrieved.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dialog's image.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "image/bmp": {
+                "schema": {
+                  "type": "string",
+                  "format": "byte"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument or dialog image not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while retrieving the dialog image.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "List available instruments.",
+        "description": "Returns the list of instruments available to this installation. The list is drawn from the instrument source directory configured for the service and reflects what is available on disk; an instrument may appear here even if no Biomek editor process is currently running for it.\n\nEach instrument name is the URL-encoded Windows file system name of the instrument file and is the value used in the `{instrumentName}` path parameter on every other instrument-scoped endpoint.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of available instruments.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/InstrumentEntry"
+                  },
+                  "example": {
+                    "Biomek i5": {
+                      "details": "/instruments/Biomek%20i5"
+                    },
+                    "Biomek i7": {
+                      "details": "/instruments/Biomek%20i7"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Could not retrieve list of available instruments.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Get information about a specific instrument.",
+        "description": "Returns the running status of the named instrument. The instrument file must exist in the instrument source directory specified in the API configuration; if it does not, the endpoint returns HTTP 404.\n\nThe `state` field reflects the most recently observed state of the Biomek software for the specified instrument file. When the Biomek software is not running or has not yet been observed, the state is `\"unavailable\"`.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instrument details.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "$ref": "#/components/schemas/InstrumentStatus"
+                  },
+                  "example": {
+                    "i7": {
+                      "state": "running",
+                      "method": {
+                        "name": "Demo Method",
+                        "project": "Demo",
+                        "path": "Methods\\",
+                        "version": "1.0",
+                        "hasUnsavedChanges": false
+                      },
+                      "errors": [ ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while retrieving the instrument.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/events": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Stream state updates for a specific instrument as Server-Sent Events.",
+        "description": "Opens a `text/event-stream` connection that emits the current instrument state immediately and then a new event whenever the state changes. The stream remains open for the lifetime of the client connection.\n\nWhile the specified instrument file is not open in an instance of the Biomek software, an event with `state: \"unavailable\"` is emitted and new events resume once the specified instrument file becomes available again. The stream remains open throughout; clients do not need to reconnect when the instrument file becomes available.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "text/event-stream": { }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "text/event-stream": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/run": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Start a run of the method currently open in the Biomek UI that has the specified instrument open.",
+        "description": "Starts a run of the method currently open in the Biomek editor process associated with the named instrument.\n\nThe request body is optional. When supplied, its `variables` object maps Start step variable names to values (strings or numbers) that override the method's Start step defaults for this run. A string value beginning with `=` is evaluated as an expression by the Biomek software at runtime. Supplying a name that is not an overridable Start step variable returns HTTP 422. Start step variables that are not supplied keep their method-defined default values.\n\nWhen a variable is rejected, the HTTP 422 error response's `details` array lists every offending variable, each as an object with a `name` and a `code` (`unknown` if the name is not a Start step variable, `not_overridable` if it cannot be overridden, or `invalid_type` if its value is not a string or number).\n\nThe run is started asynchronously: a successful call returns HTTP 202 once the run request has been accepted, without waiting for the run to complete. Clients can subscribe to `GET /instruments/{instrumentName}/events` to monitor run progress and detect completion.\n\nThe Biomek editor for the named instrument must already be running with the method to be run open in its workspace. Use `POST /instruments/{instrumentName}/methods/{methodName}/open` first if a different method needs to be opened.\n\nSee the error responses listed in this API reference for possible error status codes.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "requestBody": {
+          "description": "Optional request body. When supplied, its `variables` dictionary provides values for the open method's Start step variables.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunMethodRequest"
+                  }
+                ]
+              }
+            },
+            "text/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunMethodRequest"
+                  }
+                ]
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RunMethodRequest"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Method run initiated successfully.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Instrument is busy with a run in progress, or its editor is blocked by a dialog or local operation.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "No method currently open on the instrument, or one or more supplied variables are invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while starting the method run.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/pause": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Pause the run currently in progress on the named instrument.",
+        "description": "Pauses the run in progress in the Biomek editor process associated with the named instrument. If it is already paused (through the API or the local pause button), the call is idempotent and returns HTTP 202. If no run is in progress, the endpoint returns HTTP 409.\n\nRapidly alternating pause and resume can cause instrument errors, so a pause issued within a short cooldown after a resume returns HTTP 429. A successful response includes `links` to the instrument state, the events stream, and the `resume` endpoint.\n\nThere is no request body for this endpoint.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Pause request accepted.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The instrument has no run in progress to pause, or its editor is blocked by a dialog or local operation.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "A pause was requested too soon after a resume.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while pausing the run.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/resume": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Resume a run that was paused on the named instrument.",
+        "description": "Resumes a run that was paused through the API or the pause button in the Biomek editor process associated with the named instrument. If it is already running because it was just resumed, the call is idempotent and returns HTTP 202; if no paused run exists, the endpoint returns HTTP 409. A run that is only <em>displayed</em> as paused because a dialog is open is not resumable through this endpoint and returns HTTP 409.\n\nRapidly alternating pause and resume can cause instrument errors, so a resume issued within a short cooldown after a pause returns HTTP 429.\n\nThere is no request body for this endpoint.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Resume request accepted.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The instrument has no paused run to resume, or its editor is blocked by a dialog or local operation.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "A resume was requested too soon after a pause.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while resuming the run.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/abort": {
+      "post": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Abort the run currently in progress on the named instrument.",
+        "description": "Aborts the run in progress or paused in the Biomek editor process associated with the named instrument. A run must exist; if no run is in progress — including the case where a local user has already aborted — the endpoint returns HTTP 409.\n\nA successful response includes `links` to the instrument state and events stream. There is no request body for this endpoint.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Abort request accepted.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The instrument has no run in progress to abort, or its editor is blocked by a dialog or local operation.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while aborting the run.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/variables": {
+      "get": {
+        "tags": [
+          "Instruments"
+        ],
+        "summary": "Get the Start step variables of the method currently open on the specified instrument.",
+        "description": "Returns every Start step variable of the method currently open in the Biomek editor process associated with the named instrument, including its default value and whether it can be overridden when starting a run via `POST /instruments/{instrumentName}/run`.\n\nThe Biomek editor for the named instrument must already be running with a method open.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The Start step variables of the open method.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/StartStepVariable"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "No method currently open on the instrument.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while retrieving Start step variables.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/methods/{methodName}/open": {
+      "post": {
+        "tags": [
+          "Methods"
+        ],
+        "summary": "Open the named method in the Biomek UI.",
+        "description": "Opens the named BCAP method in the Biomek editor process associated with the given instrument. `{methodName}` is the URL-encoded BCAP method name as it appears in BCAP, not a file path.\n\nThe method name cannot contain a forward slash (`/`, URL-encoded `%2F`), because `/` is used to separate parts of the URL path. If the method is in a BCAP folder, include the folder and method name together, separated by a backslash. The backslash must be URL-encoded as `%5C`. For example, method `MyMethod` in folder `MyFolder` is addressed as `MyFolder%5CMyMethod`.\n\nThere is no request body for this endpoint. The Biomek editor attempts to open the requested method in the currently open workspace; if it is not found, this endpoint returns HTTP 404.\n\nA successful call returns HTTP 202 with `links` to `GET /instruments/{instrumentName}` and its `/events` stream, so clients can monitor progress the same way they do for other asynchronous operations. The editor opens the method asynchronously; the response is sent once the open has been accepted.\n\nSee the error responses listed in this API reference for possible error status codes.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "methodName",
+            "in": "path",
+            "description": "The URL-encoded method file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Method successfully opened.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument or method not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Instrument is busy with a run in progress, its editor is blocked by a dialog or local operation, or the user declined to save unsaved changes in the currently open method when prompted.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "No project is currently open on the instrument.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while opening the method.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instruments/{instrumentName}/methods": {
+      "post": {
+        "tags": [
+          "Methods"
+        ],
+        "summary": "Open a JSON method into the Biomek editor, optionally saving it to BCAP.",
+        "description": "Deserializes the supplied Biomek JSON method document and opens it in the Biomek editor process associated with the named instrument, sent inline in the request body rather than as a file path so integrators whose client runs on a different machine than the controller PC can call this directly.\n\nIf `name` is null or omitted, an auto-generated name is used (e.g. `Method1`). `name` cannot contain a `\\` character; creating a method in a nested BCAP folder is not currently supported. If `save` is null or omitted (the default), the method is only opened, without being persisted to BCAP. Otherwise, `name` is required and the method is persisted to BCAP under that name before being opened, with `save` controlling what happens if a method with that name already exists: `overwrite` replaces it (closing it first if it is the method already open on this instrument, or returning HTTP 409 if it is open on a different instrument or locked by another application), `rename` appends a timestamp to `name` to make it unique, and `error` returns HTTP 409 without persisting or opening anything.\n\nA successful call returns HTTP 202 with `links` to `GET /instruments/{instrumentName}` and its `/events` stream, so clients can monitor progress the same way they do for other asynchronous operations. The editor opens (and, if requested, saves) the method asynchronously; the response is sent once the request has been accepted.\n\nSee the error responses listed in this API reference for possible error status codes.",
+        "parameters": [
+          {
+            "name": "instrumentName",
+            "in": "path",
+            "description": "The URL-encoded instrument file name.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "requestBody": {
+          "description": "The method to open, its name, and how to persist it to BCAP.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenJsonMethodRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenJsonMethodRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OpenJsonMethodRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Method opened; if `save` was set, also persisted to BCAP.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            }
+          },
+          "400": {
+            "description": "The method JSON is missing or invalid, `name` contains a \"\\\" character, `name` is missing while `save` is not null/omitted, or `save` is not `overwrite`, `rename`, or `error`.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Instrument not found.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Instrument is busy with a run in progress, its editor is blocked by a dialog or local operation, the existing method to overwrite is open on a different instrument or locked, a method with that name already exists and `save` is `error`, or the user declined to save unsaved changes in the currently open method when prompted.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "The request body's `Content-Type` header is missing or not `application/json`.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "No project is currently open on the instrument.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The service encountered an unexpected internal error while opening the method.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "tags": [
+          "Root"
+        ],
+        "summary": "List available versions, their support status, and available endpoints.",
+        "description": "Returns the available API versions and their support status, as well as a map of available endpoint paths and the API versions each one supports. Clients can use this to discover endpoints and determine which `X-Api-Version` header values are valid for each path.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Available versions and endpoints.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RootResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/version": {
+      "get": {
+        "tags": [
+          "Version"
+        ],
+        "summary": "Get version information about this Biomek installation.",
+        "description": "Returns version information about the Biomek software installed on this machine. If Biomek software is not installed, returns HTTP status 503.",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/ApiVersion"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Installed version of Biomek software.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VersionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. The API key is missing or invalid.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable. The Biomek software is not running or not ready.",
+            "headers": {
+              "api-supported-versions": {
+                "$ref": "#/components/headers/api-supported-versions"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Dialog": {
+        "required": [
+          "dialogId",
+          "message",
+          "options"
+        ],
+        "type": "object",
+        "properties": {
+          "dialogId": {
+            "type": "string",
+            "description": "Identifier of this dialog, assigned by the Biomek Editor.",
+            "format": "uuid"
+          },
+          "message": {
+            "type": "string",
+            "description": "Message displayed on this dialog in the Biomek Editor."
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Buttons available to click on this dialog."
+          },
+          "requiresTextInput": {
+            "type": "boolean",
+            "description": "True if the dialog has a field for user input."
+          },
+          "defaultInput": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The default text for the input field, if available."
+          },
+          "hasImage": {
+            "type": "boolean",
+            "description": "True if the dialog shows an image."
+          },
+          "isError": {
+            "type": "boolean",
+            "description": "True if the dialog is an error message, rather than a user prompt."
+          },
+          "openedAt": {
+            "type": "string",
+            "description": "The time at which the dialog was opened in the Biomek Editor.",
+            "format": "date-time"
+          },
+          "links": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "description": "Contains HATEOAS links relevant to this dialog, such as a link to get an image or to send a response."
+          }
+        },
+        "description": "Represents a dialog open in the Biomek editor."
+      },
+      "DialogResponse": {
+        "required": [
+          "option"
+        ],
+        "type": "object",
+        "properties": {
+          "option": {
+            "type": "string",
+            "description": "Button to select as the response."
+          },
+          "input": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "Input from the user. If omitted and the dialog has a defaultInput, the defaultInput is used. If the dialog requires input and has no defaultInput, omitting this field returns a 422 error."
+          }
+        },
+        "description": "Request body from an API client responding to a dialog."
+      },
+      "EndpointInfo": {
+        "required": [
+          "supportedVersions"
+        ],
+        "type": "object",
+        "properties": {
+          "supportedVersions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "API versions supported by this endpoint."
+          }
+        },
+        "description": "Descriptor for an API endpoint."
+      },
+      "ErrorResponse": {
+        "required": [
+          "error",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "A short machine-readable error code, e.g. `invalid_request`."
+          },
+          "message": {
+            "type": "string",
+            "description": "A human-readable description of what went wrong."
+          },
+          "details": {
+            "type": "object",
+            "description": "Optional. Additional context about the error, such as which parameter was invalid."
+          },
+          "links": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri-reference"
+            },
+            "description": "Optional. To recover from this error, use the given links to navigate to the appropriate resources."
+          }
+        },
+        "description": "The standard error response body returned by all error responses from the Biomek Software Web API.",
+        "example": {
+          "error": "<error_code>",
+          "message": "<error_message>",
+          "links": {
+            "<relationName>": "<uri-reference>"
+          }
+        }
+      },
+      "InstrumentEntry": {
+        "required": [
+          "details"
+        ],
+        "type": "object",
+        "properties": {
+          "details": {
+            "type": "string",
+            "description": "Relative URL to the instrument detail endpoint."
+          }
+        },
+        "description": "Entry for a single instrument in the `GET /instruments` response."
+      },
+      "InstrumentMethodInfo": {
+        "required": [
+          "name",
+          "hasUnsavedChanges"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The method name."
+          },
+          "project": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The project the method belongs to. Null for unsaved methods."
+          },
+          "path": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The project folder path relative to the project root. Always a non-empty string terminated with a trailing backslash when present (e.g. `\\` for the root, `Folder\\` for a top-level folder). Null when the method has not been saved to a project."
+          },
+          "version": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The method version string. Null for unsaved methods."
+          },
+          "hasUnsavedChanges": {
+            "type": "boolean",
+            "description": "True when the method has unsaved changes."
+          }
+        },
+        "description": "Describes the method currently open in the Biomek editor."
+      },
+      "InstrumentStatus": {
+        "required": [
+          "state",
+          "errors"
+        ],
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "One of: unavailable, ready, running, paused, error, busy."
+          },
+          "method": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "description": "Currently-open method info. Null when no method is open.",
+                "$ref": "#/components/schemas/InstrumentMethodInfo"
+              }
+            ]
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Error messages from the panel and runtime dialogs. Empty when no errors."
+          }
+        },
+        "description": "The per-instrument value returned by GET /instruments/{instrumentName} and in each SSE event on /instruments/{instrumentName}/events."
+      },
+      "OpenJsonMethodRequest": {
+        "type": "object",
+        "properties": {
+          "body": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "description": "The Biomek JSON method document (`\"format\": \"Biomek Method\"`) to open,\r\nsent inline rather than as a file path. A missing or null `body`\r\nreturns the `invalid_method_json` error."
+              }
+            ]
+          },
+          "name": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "The name to give the opened method. Leading/trailing whitespace is trimmed before use, so a whitespace-only value is treated the same as null or omitted. If null, omitted, or empty after trimming, an auto-generated name is used instead. Required if `save` is not null/omitted."
+          },
+          "save": {
+            "type": [
+              "null",
+              "string"
+            ],
+            "description": "How to persist the method to BCAP, if at all: null or omitted (default) means open only, with no persistence; `overwrite` replaces an existing method named `name`; `rename` appends a timestamp to `name` if it's taken; `error` returns `409 Conflict` if `name` is taken. Matching is case-insensitive (for example, `Overwrite` is accepted)."
+          }
+        },
+        "description": "Request body for `POST /instruments/{instrumentName}/methods`."
+      },
+      "RootResponse": {
+        "required": [
+          "versions",
+          "endpoints"
+        ],
+        "type": "object",
+        "properties": {
+          "versions": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/VersionStatus"
+            },
+            "description": "Map of version strings to their support status.",
+            "example": {
+              "1.0": {
+                "status": "current"
+              }
+            }
+          },
+          "endpoints": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EndpointInfo"
+            },
+            "description": "Map of endpoint paths to their descriptor objects.",
+            "example": {
+              "/instruments": {
+                "supportedVersions": [
+                  "1.0"
+                ]
+              },
+              "/version": {
+                "supportedVersions": [
+                  "1.0"
+                ]
+              }
+            }
+          }
+        },
+        "description": "Response body for `GET /`."
+      },
+      "RunMethodRequest": {
+        "type": "object",
+        "properties": {
+          "variables": {
+            "type": [
+              "null",
+              "object"
+            ],
+            "additionalProperties": {
+              "type": [
+                "number",
+                "string"
+              ]
+            },
+            "description": "Start step variable overrides, keyed by variable name. Values must be JSON strings or numbers; a string beginning with `=` is evaluated as an expression by the Biomek software when the run starts. If the same variable name appears more than once, the last value wins. Overriding a variable that would otherwise prompt the user for a value suppresses that prompt for this run and uses the supplied value instead."
+          }
+        },
+        "description": "Optional body for `POST /instruments/{instrumentName}/run`.",
+        "example": {
+          "variables": {
+            "TransferVolume": 50,
+            "SourceLabware": "Corning 3635",
+            "SampleCount": "=NumberOfColumns * 8"
+          }
+        }
+      },
+      "StartStepVariable": {
+        "required": [
+          "name",
+          "defaultValue",
+          "isOverridable",
+          "isPrompt"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The variable name."
+          },
+          "defaultValue": {
+            "description": "The variable's default value, as defined in the method's Start step. A JSON string or number."
+          },
+          "isOverridable": {
+            "type": "boolean",
+            "description": "True when the variable can be overridden via the API."
+          },
+          "isPrompt": {
+            "type": "boolean",
+            "description": "True when the variable prompts for a value at run start. If it is also overridable, supplying an override for this run suppresses the prompt."
+          }
+        },
+        "description": "A Start step variable of the method currently open on an instrument, as returned by `GET /instruments/{instrumentName}/variables`.",
+        "example": {
+          "name": "TransferVolume",
+          "defaultValue": 50,
+          "isOverridable": true,
+          "isPrompt": false
+        }
+      },
+      "VersionResponse": {
+        "required": [
+          "biomekSoftwareVersion"
+        ],
+        "type": "object",
+        "properties": {
+          "biomekSoftwareVersion": {
+            "type": "string",
+            "description": "Installed version of the Biomek software, e.g. `5.255.0`.",
+            "example": "5.255.0"
+          }
+        },
+        "description": "Response body for `GET /version`."
+      },
+      "VersionStatus": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "One of `current`, `deprecated`, or `sunset`."
+          }
+        },
+        "description": "Support status of an API version."
+      }
+    },
+    "parameters": {
+      "ApiVersion": {
+        "name": "X-Api-Version",
+        "in": "header",
+        "description": "Requested API version. If omitted, the latest available version is assumed.",
+        "schema": {
+          "type": "string",
+          "example": "1.0"
+        }
+      }
+    },
+    "headers": {
+      "api-supported-versions": {
+        "description": "Comma-separated list of API versions supported by this endpoint.",
+        "schema": {
+          "type": "string",
+          "example": "1.0"
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "description": "API key for authentication. Required if the service is configured to require API keys.",
+        "name": "X-Api-Key",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": [ ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "Dialogs"
+    },
+    {
+      "name": "Instruments"
+    },
+    {
+      "name": "Methods"
+    },
+    {
+      "name": "Root"
+    },
+    {
+      "name": "Version"
+    }
+  ]
+}

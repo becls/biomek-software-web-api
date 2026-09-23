@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biomek Method JSON Documentation</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#5b6472;--rule:#d7dce3;--accent:#0b5cad;--code-bg:#f4f6f9;--code-fg:#1a2733;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);margin:0;background:#fff;}
+.page{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;}
+h1,h2,h3,h4{line-height:1.25;font-weight:650;}
+h1{font-size:1.9rem;border-bottom:2px solid var(--rule);padding-bottom:.3rem;margin-top:2.5rem;}
+h2{font-size:1.4rem;margin-top:2rem;}
+h3{font-size:1.15rem;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+code{font-family:Consolas,"SF Mono",Menlo,monospace;font-size:.88em;background:var(--code-bg);padding:.1em .35em;border-radius:3px;}
+pre{background:var(--code-bg);color:var(--code-fg);border:1px solid var(--rule);border-radius:6px;padding:.9rem 1rem;overflow:auto;font-size:.82rem;line-height:1.45;}
+pre code{background:none;padding:0;font-size:inherit;}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.9rem;}
+th,td{border:1px solid var(--rule);padding:.4rem .6rem;text-align:left;vertical-align:top;}
+th{background:var(--code-bg);}
+blockquote{border-left:3px solid var(--accent);margin:1rem 0;padding:.2rem 1rem;color:var(--muted);}
+hr{border:none;border-top:1px solid var(--rule);margin:2rem 0;}
+/* Cover */
+.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;page-break-after:always;border-bottom:none;}
+.cover .kick{color:var(--accent);letter-spacing:.15em;text-transform:uppercase;font-size:.8rem;font-weight:700;}
+.cover h1{border:none;font-size:2.8rem;margin:.6rem 0;}
+.cover .sub{color:var(--muted);font-size:1.15rem;max-width:34rem;}
+.cover .meta{margin-top:2.5rem;color:var(--muted);font-size:.95rem;}
+/* ToC */
+.toc{page-break-after:always;}
+.toc h1{margin-top:0;}
+.toc ol{list-style:none;padding-left:0;}
+.toc .grp{font-weight:700;margin:1.2rem 0 .3rem;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:.2rem;}
+.toc li{margin:.15rem 0;padding-left:1rem;}
+.toc a{color:var(--fg);}
+.chapter{page-break-before:always;padding-top:.5rem;}
+.chapter .crumb{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:-1.5rem;}
+.backtop{font-size:.78rem;margin:.5rem 0 0;}
+.siblings{margin-top:1.6rem;color:var(--muted);font-size:.85rem;}
+.siblings a{margin:0 .4rem;}
+/* Landing page */
+.card{border:1px solid var(--rule);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;}
+.card h2{margin:0 0 .3rem;font-size:1.2rem;}
+.card p{margin:.2rem 0 0;color:var(--muted);font-size:.92rem;}
+.printhint{margin-top:.9rem;color:var(--muted);font-size:.85rem;}
+/* The hint tells you how to reach the PDF, so it is noise once you are in one. */
+/* Full-viewport cover matters only for PDF pagination; on screen it makes the
+   page look like it ends at the title, so it is scoped to print. */
+@media print{.page{max-width:none;padding:0 1.2cm;}a{color:var(--fg);}.printhint{display:none;}.cover{min-height:100vh;}}
+</style>
+</head><body>
+<div class="page">
+
+<h1>Biomek Method JSON Documentation</h1>
+<div class="meta">JSON format version 1.0</div>
+<div class="card"><h2><a href="biomek-json-authoring-guide.html">Biomek JSON Authoring Guide</a></h2><p>Start here. What a Biomek method is, the JSON envelope and structural rules, pipetting techniques, a copy-ready worked example, and the complete per-step parameter reference.</p></div><div class="card"><h2><a href="biomek-json-format-reference.html">Biomek Instrument &amp; Project Reference</a></h2><p>How to read your own instrument&#x27;s exported settings: pod settings, deck layouts and the ALP catalog, per-model sample decks, and the project-item catalogs (labware, liquid types, tips, techniques).</p></div><div class="card"><h2><a href="biomek-json-addon-steps.html">Biomek JSON Add-on Steps</a></h2><p>Steps that are not part of the core step registry and are only available when their add-on is installed. Authored by COM ProgID rather than a short step-type name.</p></div><div class="card"><h2><a href="biomek-json-documentation-complete.html">Biomek Method JSON Documentation — Complete Set</a></h2><p>All three volumes in one self-contained file, with every cross-volume link live as a same-page jump. Convenient for searching the whole set at once, or reading offline.</p></div>
+<div class="printhint">Want a PDF? Open this page in Microsoft Edge or Google Chrome, press Ctrl+P, and choose <em>Save as PDF</em> as the destination.</div>
+
+</div>
+</body></html>

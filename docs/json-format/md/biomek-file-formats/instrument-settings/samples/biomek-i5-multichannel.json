@@ -1,0 +1,6413 @@
+{
+  "format": "Biomek Instrument Settings",
+  "formatVersion": "1.0",
+  "podSettings": {
+    "pod1": {
+      "asText": "Validation Time: Not Validated\r\nSerial Number: None\r\n\r\nHead Type: 300 \u00B5L MC-96 Head\r\n\r\nAxis Limit Settings:\r\n  X:  [ 10.52 , 76.35 ]\r\n  Y:  [ 14.60 , 59.59 ]\r\n  Z:  [ 11.00 , 39.86 ]\r\n  D:  [ -82.66 , 300.00 ]\r\n\r\nSpeed Limit: 100%\r\nAdditional Roving Height: 0.53 cm\r\nDo not move to Z-max when roving.\r\n\r\nTip Load Settings\r\n  Force Load Z Speed: 10%\r\n  Force Load Offset: 250 N\r\n  Force Load Slope: 2250 N\r\n  Tip Settling Time: 2.00 s\r\n  Tip Box Push Off: 0.29 cm\r\n  X Range Padding: 70.60 cm\r\n\r\nTip Unload Settings\r\n  Unload Z Offset: -0.66 cm\r\n  Shuck Speed: 100%\r\n\r\nTip Seating Depth: 0.71 cm\r\n",
+      "settings": {
+        "additionalSafeHeight": 0.5336,
+        "additionalSafeHeightGripper": 0.5336,
+        "alwaysMaxZ": false,
+        "cmdGen": {
+          "conversion": {
+            "_biomekType": "conversion",
+            "dConst": 517.347800878936,
+            "dOffset": 83.45630527,
+            "dPushoff": 0.0,
+            "ggConst": 18334.65,
+            "ggOffset": -6.039,
+            "ggPushoff": 1833.0,
+            "grConst": -376.2492651,
+            "grOffset": 375.0,
+            "grPushoff": 752.0,
+            "gyConst": 1982.2617,
+            "gyOffset": -15.833,
+            "gyPushoff": 198.0,
+            "gzConst": 1591.549,
+            "gzOffset": -37.949,
+            "gzPushoff": 318.0,
+            "speedIncrementPerPercent": 10,
+            "xConst": 2560.0,
+            "xOffset": -10.519,
+            "xPushoff": 384.0,
+            "yConst": 2560.0,
+            "yOffset": -14.446,
+            "yPushoff": 384.0,
+            "zConst": 2560.0,
+            "zOffset": -39.863,
+            "zPushoff": 384.0
+          }
+        },
+        "currentSpeed": 100,
+        "framingProbe": {
+          "radius": 0.4763,
+          "x": -4.95,
+          "y": -3.15,
+          "z": 3.763
+        },
+        "gripperModel": {
+          "finger": {
+            "fingerCenterOffset": 0.0,
+            "padsCenterToRotationCenter": 11.43
+          }
+        },
+        "gripperXOffset": 0.29129999999999967,
+        "gripperYOffset": 0.0,
+        "gripperZOffset": -7.279999999999999,
+        "headSerialNumber": "None",
+        "headType": "MC96_300",
+        "headTypeLabel": "300 \u00B5L MC-96 Head",
+        "max": {
+          "d": 300.0,
+          "gg": 15.739,
+          "gr": 190.0,
+          "gy": 62.683,
+          "gz": 37.949,
+          "x": 76.347,
+          "y": 59.591,
+          "z": 39.863
+        },
+        "min": {
+          "d": -82.66380166,
+          "gg": 6.039,
+          "gr": -370.0,
+          "gy": 15.834,
+          "gz": 6.943,
+          "x": 10.52,
+          "y": 14.596,
+          "z": 10.996
+        },
+        "perActionOverhead": 0.001,
+        "podType": "MC",
+        "rT_CurrentSpeed": 100,
+        "rT_Tips": null,
+        "sensorEnabled": true,
+        "speedLimit": 100.0,
+        "timeoutSlop": 25.0,
+        "tipLoadForceLimitOffset": 250.0,
+        "tipLoadForceLimitSlope": 2250.0,
+        "tipLoadPushOffDistance": 0.292,
+        "tipLoadSettlingTime": 2.0,
+        "tipLoadSpeed": 10,
+        "tipLoadXRangePadding": 70.5978,
+        "tips": null,
+        "tipSeatingDepth": 0.7074,
+        "tipUnloadShuckSpeed": 100,
+        "tipUnloadZOffset": -0.661,
+        "type": "Pod96"
+      },
+      "timestamp": {
+        "_biomekType": "dateTime",
+        "value": "2026-08-21T16:17:23.3440000"
+      }
+    }
+  },
+  "deckLayouts": {
+    "multichannel": {
+      "groups": {
+        "static1x1_1": {
+          "$ref": "#/deckLayouts/multichannel/positions/p1/group"
+        },
+        "static1x1_2": {
+          "$ref": "#/deckLayouts/multichannel/positions/p2/group"
+        },
+        "static1x1_3": {
+          "$ref": "#/deckLayouts/multichannel/positions/p6/group"
+        },
+        "static1x1_4": {
+          "$ref": "#/deckLayouts/multichannel/positions/p7/group"
+        },
+        "static1x1_5": {
+          "$ref": "#/deckLayouts/multichannel/positions/p11/group"
+        },
+        "static1x1_6": {
+          "$ref": "#/deckLayouts/multichannel/positions/p12/group"
+        },
+        "static1x1_7": {
+          "$ref": "#/deckLayouts/multichannel/positions/p13/group"
+        },
+        "static1x1_8": {
+          "$ref": "#/deckLayouts/multichannel/positions/p14/group"
+        },
+        "static1x1_9": {
+          "$ref": "#/deckLayouts/multichannel/positions/p15/group"
+        },
+        "static1x3_1": {
+          "$ref": "#/deckLayouts/multichannel/positions/p3/group"
+        },
+        "static1x3_2": {
+          "$ref": "#/deckLayouts/multichannel/positions/p10/group"
+        },
+        "tipLoad1x1_1": {
+          "$ref": "#/deckLayouts/multichannel/positions/tL1/group"
+        },
+        "tipLoad1x1_2": {
+          "$ref": "#/deckLayouts/multichannel/positions/tL2/group"
+        },
+        "tipLoad1x1_3": {
+          "$ref": "#/deckLayouts/multichannel/positions/tL3/group"
+        },
+        "tipLoad1x1_4": {
+          "$ref": "#/deckLayouts/multichannel/positions/tL4/group"
+        },
+        "tipLoad1x1_5": {
+          "$ref": "#/deckLayouts/multichannel/positions/tL5/group"
+        },
+        "trashLeftSlide_1": {
+          "$ref": "#/deckLayouts/multichannel/positions/tR1/group"
+        },
+        "washStation96_1": {
+          "$ref": "#/deckLayouts/multichannel/positions/wS1/group"
+        }
+      },
+      "isDefault": true,
+      "isReadOnly": false,
+      "name": "Multichannel",
+      "positions": {
+        "p1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p1",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p1/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x1_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p1": {
+                "$ref": "#/deckLayouts/multichannel/positions/p1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P1",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p10": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p10",
+          "alpType": "Static1x3",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p10/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x3_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 15
+            },
+            "positions": {
+              "p10": {
+                "$ref": "#/deckLayouts/multichannel/positions/p10"
+              },
+              "p8": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/multichannel/positions/p10/group/positions/p8",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/multichannel/positions/p10/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P8",
+                "offsetX": 0.441,
+                "offsetY": 0.441,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/multichannel/positions/p10/group/positions/p8"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A1",
+                "x1": 54.96980000190736,
+                "x2": 54.96980000190736,
+                "xSpan": 12.819,
+                "y1": 36.375999636840824,
+                "y2": 36.375999636840824,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              },
+              "p9": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/multichannel/positions/p10/group/positions/p9",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/multichannel/positions/p10/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P9",
+                "offsetX": 0.441,
+                "offsetY": 10.855,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/multichannel/positions/p10/group/positions/p9"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A2",
+                "x1": 54.96980000190736,
+                "x2": 54.96980000190736,
+                "xSpan": 12.819,
+                "y1": 46.78999963684082,
+                "y2": 46.78999963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 19,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x3",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 35.93499963684082,
+            "y2": 35.93499963684082,
+            "ySpan": 30.3,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P10",
+          "offsetX": 0.441,
+          "offsetY": 21.269,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p10"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A3",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 57.20399963684082,
+          "y2": 57.20399963684082,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p11": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p11",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p11/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_5",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p11": {
+                "$ref": "#/deckLayouts/multichannel/positions/p11"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P11",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p11"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p12": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p12",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p12/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_6",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p12": {
+                "$ref": "#/deckLayouts/multichannel/positions/p12"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P12",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p12"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p13": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p13",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p13/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_7",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p13": {
+                "$ref": "#/deckLayouts/multichannel/positions/p13"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 20,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 35.934999705505376,
+            "y2": 35.934999705505376,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P13",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p13"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 36.37599970550538,
+          "y2": 36.37599970550538,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p14": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p14",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p14/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_8",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p14": {
+                "$ref": "#/deckLayouts/multichannel/positions/p14"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 25,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 46.34899970550537,
+            "y2": 46.34899970550537,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P14",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p14"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 46.78999970550537,
+          "y2": 46.78999970550537,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p15": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p15",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p15/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_9",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p15": {
+                "$ref": "#/deckLayouts/multichannel/positions/p15"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 56.76299970550537,
+            "y2": 56.76299970550537,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P15",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p15"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 57.203999705505375,
+          "y2": 57.203999705505375,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p2": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p2",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p2/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x1_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p2": {
+                "$ref": "#/deckLayouts/multichannel/positions/p2"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P2",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p2"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p3": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p3",
+          "alpType": "Static1x3",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p3/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x3_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 15
+            },
+            "positions": {
+              "p3": {
+                "$ref": "#/deckLayouts/multichannel/positions/p3"
+              },
+              "p4": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/multichannel/positions/p3/group/positions/p4",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/multichannel/positions/p3/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P4",
+                "offsetX": 0.441,
+                "offsetY": 10.855,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/multichannel/positions/p3/group/positions/p4"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A2",
+                "x1": 40.39020000190736,
+                "x2": 40.39020000190736,
+                "xSpan": 12.819,
+                "y1": 46.78999963684082,
+                "y2": 46.78999963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              },
+              "p5": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/multichannel/positions/p3/group/positions/p5",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/multichannel/positions/p3/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P5",
+                "offsetX": 0.441,
+                "offsetY": 21.269,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/multichannel/positions/p3/group/positions/p5"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A3",
+                "x1": 40.39020000190736,
+                "x2": 40.39020000190736,
+                "xSpan": 12.819,
+                "y1": 57.20399963684082,
+                "y2": 57.20399963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 19,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x3",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 35.93499963684082,
+            "y2": 35.93499963684082,
+            "ySpan": 30.3,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P3",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p3"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 36.375999636840824,
+          "y2": 36.375999636840824,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p4": {
+          "$ref": "#/deckLayouts/multichannel/positions/p3/group/positions/p4"
+        },
+        "p5": {
+          "$ref": "#/deckLayouts/multichannel/positions/p3/group/positions/p5"
+        },
+        "p6": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p6",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p6/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x1_3",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p6": {
+                "$ref": "#/deckLayouts/multichannel/positions/p6"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P6",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p6"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p7": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/p7",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/p7/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x1_4",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p7": {
+                "$ref": "#/deckLayouts/multichannel/positions/p7"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P7",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/p7"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p8": {
+          "$ref": "#/deckLayouts/multichannel/positions/p10/group/positions/p8"
+        },
+        "p9": {
+          "$ref": "#/deckLayouts/multichannel/positions/p10/group/positions/p9"
+        },
+        "tL1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tL1",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tL1/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL1": {
+                "$ref": "#/deckLayouts/multichannel/positions/tL1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL1",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tL1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL2": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tL2",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tL2/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL2": {
+                "$ref": "#/deckLayouts/multichannel/positions/tL2"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL2",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tL2"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL3": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tL3",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tL3/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_3",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL3": {
+                "$ref": "#/deckLayouts/multichannel/positions/tL3"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 20,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 35.934999705505376,
+            "y2": 35.934999705505376,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL3",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tL3"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 36.37599970550538,
+          "y2": 36.37599970550538,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL4": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tL4",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tL4/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_4",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL4": {
+                "$ref": "#/deckLayouts/multichannel/positions/tL4"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 25,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 46.34899970550537,
+            "y2": 46.34899970550537,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL4",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tL4"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 46.78999970550537,
+          "y2": 46.78999970550537,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL5": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tL5",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tL5/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_5",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL5": {
+                "$ref": "#/deckLayouts/multichannel/positions/tL5"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 56.76299970550537,
+            "y2": 56.76299970550537,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL5",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tL5"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 57.203999705505375,
+          "y2": 57.203999705505375,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tR1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/tR1",
+          "alpType": "TrashLeftSlide",
+          "baseName": "TR",
+          "canCopyDevice": true,
+          "characteristics": {
+            "can Discard Tips": null,
+            "disableFrameWithGripper": null,
+            "disallow AutoTeach": null,
+            "disallow ManualTeach": null,
+            "disallow NormalTeach": null,
+            "trash": null
+          },
+          "deck": null,
+          "device": {
+            "_biomekType": "device",
+            "_deviceType": "Biomek5.TrashDevice",
+            "deckPositions": [
+              {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              }
+            ],
+            "isReadOnly": true,
+            "name": "Trash"
+          },
+          "deviceIndex": 0,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/tR1/group",
+            "categories": {
+              "span8": null,
+              "trash": null
+            },
+            "column": 6,
+            "name": "TrashLeftSlide_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 18.997,
+              "offsetY": 0.961,
+              "rowCount": 7
+            },
+            "positions": {
+              "tR1": {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              }
+            },
+            "regions": [
+              {
+                "absColCount": 1,
+                "offsetFromDeckBackRow": 11,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5
+              }
+            ],
+            "row": 18,
+            "trashLeftRightWallZSpan": 25.2474,
+            "type": "TrashLeftSlide",
+            "x1": -7.604999740600583,
+            "x2": -7.604999740600583,
+            "xSpan": 32.446,
+            "y1": 27.212800088500977,
+            "y2": 27.212800088500977,
+            "ySpan": 14.418,
+            "z1": 27.508,
+            "z2": 27.508,
+            "zSpan": 27.508
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 0.1,
+          "name": "TR1",
+          "obstacles": {
+            "back": {
+              "position": {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 32.446,
+              "yOffset": -2.9351,
+              "ySpan": 0.9608,
+              "zOffset": 6.896
+            },
+            "front": {
+              "position": {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 32.446,
+              "yOffset": 10.522099999999998,
+              "ySpan": 0.9608,
+              "zOffset": 6.896
+            },
+            "left": {
+              "position": {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 0.342,
+              "yOffset": -2.9351,
+              "ySpan": 14.418,
+              "zOffset": 4.635400000000001
+            },
+            "right": {
+              "position": {
+                "$ref": "#/deckLayouts/multichannel/positions/tR1"
+              },
+              "xOffset": 13.138999999999998,
+              "xSpan": 0.78,
+              "yOffset": -2.9351,
+              "ySpan": 14.418,
+              "zOffset": 4.635400000000001
+            }
+          },
+          "offsetX": 18.527,
+          "offsetY": 2.9351,
+          "offsetZ": -6.896,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/tR1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "span8TipDisposalOffsetX": -4.2186,
+          "span8TipDisposalOffsetY": 0.0,
+          "stack": null,
+          "templatePositionName": "A1",
+          "tipDisposalOffsetX": 0.0,
+          "tipDisposalOffsetY": 1.124,
+          "tipDisposalOffsetZ": 5.896,
+          "x1": 10.922000259399418,
+          "x2": 10.922000259399418,
+          "xSpan": 12.819,
+          "y1": 30.147900088500975,
+          "y2": 30.147900088500975,
+          "ySpan": 8.59,
+          "z1": 20.612,
+          "z2": 20.612
+        },
+        "wS1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/multichannel/positions/wS1",
+          "adaptorPlate": {
+            "bitmap": "MC_Wash_AccuFrame.bmp",
+            "message": "Lift the wash station off its base and replace it with the AccuFrame.",
+            "visible": true,
+            "x": 0.8928,
+            "y": 2.1192,
+            "z": 0.0
+          },
+          "alpType": "WashStation96",
+          "baseName": "WS",
+          "characteristics": {
+            "disallow ManualTeach": null,
+            "no Gripping Allowed": null,
+            "wash Station": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/multichannel/positions/wS1/group",
+            "categories": {
+              "wash": null
+            },
+            "column": 6,
+            "name": "WashStation96_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 1.3716,
+              "offsetY": 2.2487,
+              "rowCount": 5
+            },
+            "positions": {
+              "wS1": {
+                "$ref": "#/deckLayouts/multichannel/positions/wS1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "type": "WashStation96",
+            "x1": 10.020399968147279,
+            "x2": 10.020399968147279,
+            "xSpan": 15.24,
+            "y1": 13.428300212097168,
+            "y2": 13.428300212097168,
+            "ySpan": 11.4943,
+            "z1": 8.5623,
+            "z2": 8.5623,
+            "zSpan": 8.5623
+          },
+          "labware": {
+            "_biomekType": "labware",
+            "$id": "#/deckLayouts/multichannel/positions/wS1/labware",
+            "class": "WashStation",
+            "properties": {
+              "liquidtype": "Water"
+            },
+            "volumeType": "Known"
+          },
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "WS1",
+          "offsetX": 0.3175,
+          "offsetY": 0.0,
+          "offsetZ": 0.0,
+          "permanentLabware": true,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/multichannel/positions/wS1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": {
+            "$ref": "#/deckLayouts/multichannel/positions/wS1/labware"
+          },
+          "stack": null,
+          "templatePositionName": "A1",
+          "wasteX": -0.45,
+          "x1": 10.33789996814728,
+          "x2": 10.33789996814728,
+          "xSpan": 14.605,
+          "y1": 13.428300212097168,
+          "y2": 13.428300212097168,
+          "ySpan": 11.43,
+          "z1": 8.5623,
+          "z2": 8.5623
+        }
+      }
+    },
+    "standard": {
+      "groups": {
+        "static1x1_1": {
+          "$ref": "#/deckLayouts/standard/positions/p1/group"
+        },
+        "static1x1_2": {
+          "$ref": "#/deckLayouts/standard/positions/p2/group"
+        },
+        "static1x1_3": {
+          "$ref": "#/deckLayouts/standard/positions/p6/group"
+        },
+        "static1x1_4": {
+          "$ref": "#/deckLayouts/standard/positions/p7/group"
+        },
+        "static1x1_5": {
+          "$ref": "#/deckLayouts/standard/positions/p11/group"
+        },
+        "static1x1_6": {
+          "$ref": "#/deckLayouts/standard/positions/p12/group"
+        },
+        "static1x1_7": {
+          "$ref": "#/deckLayouts/standard/positions/p13/group"
+        },
+        "static1x1_8": {
+          "$ref": "#/deckLayouts/standard/positions/p14/group"
+        },
+        "static1x1_9": {
+          "$ref": "#/deckLayouts/standard/positions/p15/group"
+        },
+        "static1x3_1": {
+          "$ref": "#/deckLayouts/standard/positions/p3/group"
+        },
+        "static1x3_2": {
+          "$ref": "#/deckLayouts/standard/positions/p10/group"
+        },
+        "tipLoad1x1_1": {
+          "$ref": "#/deckLayouts/standard/positions/tL1/group"
+        },
+        "tipLoad1x1_2": {
+          "$ref": "#/deckLayouts/standard/positions/tL2/group"
+        },
+        "tipLoad1x1_3": {
+          "$ref": "#/deckLayouts/standard/positions/tL3/group"
+        },
+        "tipLoad1x1_4": {
+          "$ref": "#/deckLayouts/standard/positions/tL4/group"
+        },
+        "tipLoad1x1_5": {
+          "$ref": "#/deckLayouts/standard/positions/tL5/group"
+        },
+        "trashLeftSlide_1": {
+          "$ref": "#/deckLayouts/standard/positions/tR1/group"
+        },
+        "washStation96_1": {
+          "$ref": "#/deckLayouts/standard/positions/wS1/group"
+        }
+      },
+      "isDefault": false,
+      "isReadOnly": true,
+      "name": "Standard",
+      "positions": {
+        "p1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p1",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p1/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x1_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p1": {
+                "$ref": "#/deckLayouts/standard/positions/p1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P1",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p10": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p10",
+          "alpType": "Static1x3",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p10/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x3_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 15
+            },
+            "positions": {
+              "p10": {
+                "$ref": "#/deckLayouts/standard/positions/p10"
+              },
+              "p8": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/standard/positions/p10/group/positions/p8",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/standard/positions/p10/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P8",
+                "offsetX": 0.441,
+                "offsetY": 0.441,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/standard/positions/p10/group/positions/p8"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A1",
+                "x1": 54.96980000190736,
+                "x2": 54.96980000190736,
+                "xSpan": 12.819,
+                "y1": 36.375999636840824,
+                "y2": 36.375999636840824,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              },
+              "p9": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/standard/positions/p10/group/positions/p9",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/standard/positions/p10/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P9",
+                "offsetX": 0.441,
+                "offsetY": 10.855,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/standard/positions/p10/group/positions/p9"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A2",
+                "x1": 54.96980000190736,
+                "x2": 54.96980000190736,
+                "xSpan": 12.819,
+                "y1": 46.78999963684082,
+                "y2": 46.78999963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 19,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x3",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 35.93499963684082,
+            "y2": 35.93499963684082,
+            "ySpan": 30.3,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P10",
+          "offsetX": 0.441,
+          "offsetY": 21.269,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p10"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A3",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 57.20399963684082,
+          "y2": 57.20399963684082,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p11": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p11",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p11/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_5",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p11": {
+                "$ref": "#/deckLayouts/standard/positions/p11"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P11",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p11"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p12": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p12",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p12/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_6",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p12": {
+                "$ref": "#/deckLayouts/standard/positions/p12"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P12",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p12"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p13": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p13",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p13/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_7",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p13": {
+                "$ref": "#/deckLayouts/standard/positions/p13"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 20,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 35.934999705505376,
+            "y2": 35.934999705505376,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P13",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p13"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 36.37599970550538,
+          "y2": 36.37599970550538,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p14": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p14",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p14/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_8",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p14": {
+                "$ref": "#/deckLayouts/standard/positions/p14"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 25,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 46.34899970550537,
+            "y2": 46.34899970550537,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P14",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p14"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 46.78999970550537,
+          "y2": 46.78999970550537,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p15": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p15",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p15/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 34,
+            "name": "Static1x1_9",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p15": {
+                "$ref": "#/deckLayouts/standard/positions/p15"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 69.10840000190736,
+            "x2": 69.10840000190736,
+            "xSpan": 13.701,
+            "y1": 56.76299970550537,
+            "y2": 56.76299970550537,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P15",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p15"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 69.54940000190736,
+          "x2": 69.54940000190736,
+          "xSpan": 12.819,
+          "y1": 57.203999705505375,
+          "y2": 57.203999705505375,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p2": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p2",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p2/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x1_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p2": {
+                "$ref": "#/deckLayouts/standard/positions/p2"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P2",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p2"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p3": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p3",
+          "alpType": "Static1x3",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p3/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 20,
+            "name": "Static1x3_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 15
+            },
+            "positions": {
+              "p3": {
+                "$ref": "#/deckLayouts/standard/positions/p3"
+              },
+              "p4": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/standard/positions/p3/group/positions/p4",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/standard/positions/p3/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P4",
+                "offsetX": 0.441,
+                "offsetY": 10.855,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/standard/positions/p3/group/positions/p4"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A2",
+                "x1": 40.39020000190736,
+                "x2": 40.39020000190736,
+                "xSpan": 12.819,
+                "y1": 46.78999963684082,
+                "y2": 46.78999963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              },
+              "p5": {
+                "_biomekType": "deckPosition",
+                "_RT_Stack": null,
+                "$id": "#/deckLayouts/standard/positions/p3/group/positions/p5",
+                "alpType": "Static1x3",
+                "baseName": "P",
+                "characteristics": {
+                  "span Can Load Tips": null
+                },
+                "deck": null,
+                "device": null,
+                "deviceIndex": -1,
+                "framed1": "Not",
+                "framed2": "Not",
+                "group": {
+                  "$ref": "#/deckLayouts/standard/positions/p3/group"
+                },
+                "labware": null,
+                "labwareOffsets": {},
+                "labwareX": 0.0,
+                "labwareY": 0.0,
+                "labwareZ": 0.0,
+                "minSafeHeight": 1.0,
+                "name": "P5",
+                "offsetX": 0.441,
+                "offsetY": 21.269,
+                "offsetZ": 0.0,
+                "permanentLabware": false,
+                "podAccessResource": {
+                  "position": {
+                    "$ref": "#/deckLayouts/standard/positions/p3/group/positions/p5"
+                  },
+                  "type": "PodAccess"
+                },
+                "required": {
+                  "standard TiterPlate Size": null
+                },
+                "rT_Labware": null,
+                "stack": null,
+                "templatePositionName": "A3",
+                "x1": 40.39020000190736,
+                "x2": 40.39020000190736,
+                "xSpan": 12.819,
+                "y1": 57.20399963684082,
+                "y2": 57.20399963684082,
+                "ySpan": 8.59,
+                "z1": 15.875,
+                "z2": 15.875
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 19,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x3",
+            "x1": 39.94920000190736,
+            "x2": 39.94920000190736,
+            "xSpan": 13.701,
+            "y1": 35.93499963684082,
+            "y2": 35.93499963684082,
+            "ySpan": 30.3,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P3",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p3"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 40.39020000190736,
+          "x2": 40.39020000190736,
+          "xSpan": 12.819,
+          "y1": 36.375999636840824,
+          "y2": 36.375999636840824,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p4": {
+          "$ref": "#/deckLayouts/standard/positions/p3/group/positions/p4"
+        },
+        "p5": {
+          "$ref": "#/deckLayouts/standard/positions/p3/group/positions/p5"
+        },
+        "p6": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p6",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p6/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x1_3",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p6": {
+                "$ref": "#/deckLayouts/standard/positions/p6"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P6",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p6"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p7": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/p7",
+          "alpType": "Static1x1",
+          "baseName": "P",
+          "characteristics": {
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/p7/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 27,
+            "name": "Static1x1_4",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "p7": {
+                "$ref": "#/deckLayouts/standard/positions/p7"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "Static1x1",
+            "x1": 54.528800001907356,
+            "x2": 54.528800001907356,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 15.875,
+            "z2": 15.875,
+            "zSpan": 15.875
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "P7",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/p7"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 54.96980000190736,
+          "x2": 54.96980000190736,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 15.875,
+          "z2": 15.875
+        },
+        "p8": {
+          "$ref": "#/deckLayouts/standard/positions/p10/group/positions/p8"
+        },
+        "p9": {
+          "$ref": "#/deckLayouts/standard/positions/p10/group/positions/p9"
+        },
+        "tL1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tL1",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tL1/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL1": {
+                "$ref": "#/deckLayouts/standard/positions/tL1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 15.106999705505372,
+            "y2": 15.106999705505372,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL1",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tL1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 15.547999705505372,
+          "y2": 15.547999705505372,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL2": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tL2",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tL2/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_2",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL2": {
+                "$ref": "#/deckLayouts/standard/positions/tL2"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 15,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 25.520999705505375,
+            "y2": 25.520999705505375,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL2",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tL2"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 25.961999705505374,
+          "y2": 25.961999705505374,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL3": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tL3",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tL3/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_3",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL3": {
+                "$ref": "#/deckLayouts/standard/positions/tL3"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 20,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 35.934999705505376,
+            "y2": 35.934999705505376,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL3",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tL3"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 36.37599970550538,
+          "y2": 36.37599970550538,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL4": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tL4",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tL4/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_4",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL4": {
+                "$ref": "#/deckLayouts/standard/positions/tL4"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 25,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 46.34899970550537,
+            "y2": 46.34899970550537,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL4",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tL4"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 46.78999970550537,
+          "y2": 46.78999970550537,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tL5": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tL5",
+          "adaptorPlate": {
+            "frameWithGripper": false,
+            "frameWithTips": false,
+            "visible": false,
+            "x": 0.0,
+            "y": 0.0,
+            "z": -0.254
+          },
+          "alpType": "TipLoad1x1",
+          "baseName": "TL",
+          "characteristics": {
+            "multichannel Can Load Tips": null,
+            "span Can Load Tips": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tL5/group",
+            "categories": {
+              "basic": null
+            },
+            "column": 13,
+            "name": "TipLoad1x1_5",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 0.602,
+              "offsetY": 0.57,
+              "rowCount": 5
+            },
+            "positions": {
+              "tL5": {
+                "$ref": "#/deckLayouts/standard/positions/tL5"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 30,
+            "simulatorRenderStyle": "Static",
+            "type": "TipLoad1x1",
+            "x1": 25.36960000190735,
+            "x2": 25.36960000190735,
+            "xSpan": 13.701,
+            "y1": 56.76299970550537,
+            "y2": 56.76299970550537,
+            "ySpan": 9.472,
+            "z1": 16.129,
+            "z2": 16.129,
+            "zSpan": 16.129
+          },
+          "labware": null,
+          "labwareOffsets": {
+            "aB384WellReactionPlate": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "agilentReservoir": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1025F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC1070_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC190F_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC230_WB": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC25F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC30_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC40F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50_384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC50F_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC80_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bC90_LLS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "bcDeep96Round": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.078
+            },
+            "bcDeep96Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.111
+            },
+            "bcFlat96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.23
+            },
+            "bcUpsideDownTipBoxLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "bio_RadPCR384": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.001
+            },
+            "bio_RadPCR96": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.067
+            },
+            "costarFlat384Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.12
+            },
+            "costarFlat384SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner384ConePP": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.213
+            },
+            "greiner384ConePPDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.175
+            },
+            "greiner384Lid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96ConePS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greiner96RoundDeep": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundDeepSquare": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.169
+            },
+            "greiner96RoundPS": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536Square": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "greinerFlat1536SquareLid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            },
+            "smallTubeRack_10mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_12mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_13mm": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "smallTubeRack_Microfuge": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.11
+            },
+            "tipboxlid": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": -0.254
+            }
+          },
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "TL5",
+          "offsetX": 0.441,
+          "offsetY": 0.441,
+          "offsetZ": 0.0,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tL5"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "stack": null,
+          "templatePositionName": "A1",
+          "x1": 25.81060000190735,
+          "x2": 25.81060000190735,
+          "xSpan": 12.819,
+          "y1": 57.203999705505375,
+          "y2": 57.203999705505375,
+          "ySpan": 8.59,
+          "z1": 16.129,
+          "z2": 16.129
+        },
+        "tR1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/tR1",
+          "alpType": "TrashLeftSlide",
+          "baseName": "TR",
+          "canCopyDevice": true,
+          "characteristics": {
+            "can Discard Tips": null,
+            "disableFrameWithGripper": null,
+            "disallow AutoTeach": null,
+            "disallow ManualTeach": null,
+            "disallow NormalTeach": null,
+            "trash": null
+          },
+          "deck": null,
+          "device": {
+            "_biomekType": "device",
+            "_deviceType": "Biomek5.TrashDevice",
+            "deckPositions": [
+              {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              }
+            ],
+            "isReadOnly": true,
+            "name": "Trash"
+          },
+          "deviceIndex": 0,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/tR1/group",
+            "categories": {
+              "span8": null,
+              "trash": null
+            },
+            "column": 6,
+            "name": "TrashLeftSlide_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 18.997,
+              "offsetY": 0.961,
+              "rowCount": 7
+            },
+            "positions": {
+              "tR1": {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              }
+            },
+            "regions": [
+              {
+                "absColCount": 1,
+                "offsetFromDeckBackRow": 11,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5
+              }
+            ],
+            "row": 18,
+            "trashLeftRightWallZSpan": 25.2474,
+            "type": "TrashLeftSlide",
+            "x1": -7.604999740600583,
+            "x2": -7.604999740600583,
+            "xSpan": 32.446,
+            "y1": 27.212800088500977,
+            "y2": 27.212800088500977,
+            "ySpan": 14.418,
+            "z1": 27.508,
+            "z2": 27.508,
+            "zSpan": 27.508
+          },
+          "labware": null,
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 0.1,
+          "name": "TR1",
+          "obstacles": {
+            "back": {
+              "position": {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 32.446,
+              "yOffset": -2.9351,
+              "ySpan": 0.9608,
+              "zOffset": 6.896
+            },
+            "front": {
+              "position": {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 32.446,
+              "yOffset": 10.522099999999998,
+              "ySpan": 0.9608,
+              "zOffset": 6.896
+            },
+            "left": {
+              "position": {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              },
+              "xOffset": -18.527,
+              "xSpan": 0.342,
+              "yOffset": -2.9351,
+              "ySpan": 14.418,
+              "zOffset": 4.635400000000001
+            },
+            "right": {
+              "position": {
+                "$ref": "#/deckLayouts/standard/positions/tR1"
+              },
+              "xOffset": 13.138999999999998,
+              "xSpan": 0.78,
+              "yOffset": -2.9351,
+              "ySpan": 14.418,
+              "zOffset": 4.635400000000001
+            }
+          },
+          "offsetX": 18.527,
+          "offsetY": 2.9351,
+          "offsetZ": -6.896,
+          "permanentLabware": false,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/tR1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": null,
+          "span8TipDisposalOffsetX": -4.2186,
+          "span8TipDisposalOffsetY": 0.0,
+          "stack": null,
+          "templatePositionName": "A1",
+          "tipDisposalOffsetX": 0.0,
+          "tipDisposalOffsetY": 1.124,
+          "tipDisposalOffsetZ": 5.896,
+          "x1": 10.922000259399418,
+          "x2": 10.922000259399418,
+          "xSpan": 12.819,
+          "y1": 30.147900088500975,
+          "y2": 30.147900088500975,
+          "ySpan": 8.59,
+          "z1": 20.612,
+          "z2": 20.612
+        },
+        "wS1": {
+          "_biomekType": "deckPosition",
+          "_RT_Stack": null,
+          "$id": "#/deckLayouts/standard/positions/wS1",
+          "adaptorPlate": {
+            "bitmap": "MC_Wash_AccuFrame.bmp",
+            "message": "Lift the wash station off its base and replace it with the AccuFrame.",
+            "visible": true,
+            "x": 0.8928,
+            "y": 2.1192,
+            "z": 0.0
+          },
+          "alpType": "WashStation96",
+          "baseName": "WS",
+          "characteristics": {
+            "disallow ManualTeach": null,
+            "no Gripping Allowed": null,
+            "wash Station": null
+          },
+          "deck": null,
+          "device": null,
+          "deviceIndex": -1,
+          "framed1": "Not",
+          "framed2": "Not",
+          "group": {
+            "$id": "#/deckLayouts/standard/positions/wS1/group",
+            "categories": {
+              "wash": null
+            },
+            "column": 6,
+            "name": "WashStation96_1",
+            "pins": {
+              "colCount": 7,
+              "identifier": 0,
+              "offsetX": 1.3716,
+              "offsetY": 2.2487,
+              "rowCount": 5
+            },
+            "positions": {
+              "wS1": {
+                "$ref": "#/deckLayouts/standard/positions/wS1"
+              }
+            },
+            "regions": [
+              {
+                "offsetFromDeckBackRow": 9,
+                "offsetFromDeckFrontRow": 0,
+                "offsetFromDeckLeftCol": 5,
+                "offsetFromDeckRightCol": 11
+              }
+            ],
+            "row": 10,
+            "type": "WashStation96",
+            "x1": 10.020399968147279,
+            "x2": 10.020399968147279,
+            "xSpan": 15.24,
+            "y1": 13.428300212097168,
+            "y2": 13.428300212097168,
+            "ySpan": 11.4943,
+            "z1": 8.5623,
+            "z2": 8.5623,
+            "zSpan": 8.5623
+          },
+          "labware": {
+            "_biomekType": "labware",
+            "$id": "#/deckLayouts/standard/positions/wS1/labware",
+            "class": "WashStation",
+            "properties": {
+              "liquidtype": "Water"
+            },
+            "volumeType": "Known"
+          },
+          "labwareOffsets": {},
+          "labwareX": 0.0,
+          "labwareY": 0.0,
+          "labwareZ": 0.0,
+          "minSafeHeight": 1.0,
+          "name": "WS1",
+          "offsetX": 0.3175,
+          "offsetY": 0.0,
+          "offsetZ": 0.0,
+          "permanentLabware": true,
+          "podAccessResource": {
+            "position": {
+              "$ref": "#/deckLayouts/standard/positions/wS1"
+            },
+            "type": "PodAccess"
+          },
+          "required": {
+            "standard TiterPlate Size": null
+          },
+          "rT_Labware": {
+            "$ref": "#/deckLayouts/standard/positions/wS1/labware"
+          },
+          "stack": null,
+          "templatePositionName": "A1",
+          "wasteX": -0.45,
+          "x1": 10.33789996814728,
+          "x2": 10.33789996814728,
+          "xSpan": 14.605,
+          "y1": 13.428300212097168,
+          "y2": 13.428300212097168,
+          "ySpan": 11.43,
+          "z1": 8.5623,
+          "z2": 8.5623
+        }
+      }
+    }
+  }
+}

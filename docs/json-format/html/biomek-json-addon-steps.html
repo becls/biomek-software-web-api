@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biomek JSON Add-on Steps</title>
+<style>
+:root{--fg:#1a1a1a;--muted:#5b6472;--rule:#d7dce3;--accent:#0b5cad;--code-bg:#f4f6f9;--code-fg:#1a2733;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--fg);margin:0;background:#fff;}
+.page{max-width:52rem;margin:0 auto;padding:2rem 1.5rem;}
+h1,h2,h3,h4{line-height:1.25;font-weight:650;}
+h1{font-size:1.9rem;border-bottom:2px solid var(--rule);padding-bottom:.3rem;margin-top:2.5rem;}
+h2{font-size:1.4rem;margin-top:2rem;}
+h3{font-size:1.15rem;}
+a{color:var(--accent);text-decoration:none;}
+a:hover{text-decoration:underline;}
+code{font-family:Consolas,"SF Mono",Menlo,monospace;font-size:.88em;background:var(--code-bg);padding:.1em .35em;border-radius:3px;}
+pre{background:var(--code-bg);color:var(--code-fg);border:1px solid var(--rule);border-radius:6px;padding:.9rem 1rem;overflow:auto;font-size:.82rem;line-height:1.45;}
+pre code{background:none;padding:0;font-size:inherit;}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.9rem;}
+th,td{border:1px solid var(--rule);padding:.4rem .6rem;text-align:left;vertical-align:top;}
+th{background:var(--code-bg);}
+blockquote{border-left:3px solid var(--accent);margin:1rem 0;padding:.2rem 1rem;color:var(--muted);}
+hr{border:none;border-top:1px solid var(--rule);margin:2rem 0;}
+/* Cover */
+.cover{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;page-break-after:always;border-bottom:none;}
+.cover .kick{color:var(--accent);letter-spacing:.15em;text-transform:uppercase;font-size:.8rem;font-weight:700;}
+.cover h1{border:none;font-size:2.8rem;margin:.6rem 0;}
+.cover .sub{color:var(--muted);font-size:1.15rem;max-width:34rem;}
+.cover .meta{margin-top:2.5rem;color:var(--muted);font-size:.95rem;}
+/* ToC */
+.toc{page-break-after:always;}
+.toc h1{margin-top:0;}
+.toc ol{list-style:none;padding-left:0;}
+.toc .grp{font-weight:700;margin:1.2rem 0 .3rem;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:.2rem;}
+.toc li{margin:.15rem 0;padding-left:1rem;}
+.toc a{color:var(--fg);}
+.chapter{page-break-before:always;padding-top:.5rem;}
+.chapter .crumb{color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:-1.5rem;}
+.backtop{font-size:.78rem;margin:.5rem 0 0;}
+.siblings{margin-top:1.6rem;color:var(--muted);font-size:.85rem;}
+.siblings a{margin:0 .4rem;}
+/* Landing page */
+.card{border:1px solid var(--rule);border-radius:8px;padding:1rem 1.2rem;margin:1rem 0;}
+.card h2{margin:0 0 .3rem;font-size:1.2rem;}
+.card p{margin:.2rem 0 0;color:var(--muted);font-size:.92rem;}
+.printhint{margin-top:.9rem;color:var(--muted);font-size:.85rem;}
+/* The hint tells you how to reach the PDF, so it is noise once you are in one. */
+/* Full-viewport cover matters only for PDF pagination; on screen it makes the
+   page look like it ends at the title, so it is scoped to print. */
+@media print{.page{max-width:none;padding:0 1.2cm;}a{color:var(--fg);}.printhint{display:none;}.cover{min-height:100vh;}}
+</style>
+</head><body>
+<div class="page">
+
+<section class="cover">
+  <div class="kick">Beckman Coulter Life Sciences</div>
+  <h1>Biomek JSON Add-on Steps</h1>
+  <div class="sub">Step Types Contributed by Add-on Modules and Device Integrations</div>
+  <div class="meta">JSON format version 1.0<br>2 documents</div>
+  <div class="siblings">Companion volumes: <a href="biomek-json-authoring-guide.html">Biomek JSON Authoring Guide</a> &middot; <a href="biomek-json-format-reference.html">Biomek Instrument &amp; Project Reference</a></div>
+  <div class="printhint">Want a PDF? Open this page in Microsoft Edge or Google Chrome, press Ctrl+P, and choose <em>Save as PDF</em> as the destination.</div>
+</section>
+<section class="toc" id="toc"><h1>Table of Contents</h1><ol><li class="grp">Add-on Steps</li><li><a href="#doc-add-on-steps-index-md">Add-on Steps</a></li><li><a href="#doc-add-on-steps-87-guided-setup-md">Guided Setup</a></li></ol></section><section class="chapter" id="doc-add-on-steps-index-md"><div class="crumb">Add-on Steps &middot; <code>add-on-steps/index.md</code></div>
+<h1 id="doc-add-on-steps-index-md--add-on-steps">Add-on Steps</h1>
+<p>Biomek Software includes a core set of built-in step types, documented in the
+<a href="biomek-json-authoring-guide.html#doc-step-documentation-index-md">step documentation index</a>. Beyond that core set, <strong>add-on
+modules, device integrations, and site plug-ins register their own step types</strong>. This area
+holds the reference documentation for those steps.</p>
+<p>An add-on step behaves like any other step in the method tree — same envelope, same base
+keys, same structural rules — with two differences worth knowing before you author one:</p>
+<ul>
+<li><strong>Its <code>stepType</code> may be a friendly name or a COM ProgID, depending on the add-on.</strong> Many
+  add-ons publish a short, friendly <code>stepType</code>; one that does not carries its registration
+  identifier (a ProgID) instead. Import resolves a <code>stepType</code> against the built-in
+  registry first, then as a CLSID string, then as a ProgID — so a ProgID is a legal <code>stepType</code>.
+  Check the add-on's own documentation for the exact <code>stepType</code> it expects. See <em>Beyond the
+  Built-in Steps</em> in <a href="biomek-json-authoring-guide.html#doc-method-json-structure-md">Method JSON Structure</a>.</li>
+<li><strong>The add-on must be installed on the target instrument.</strong> An add-on step imports only on an
+  install where its library is registered. On an instrument without it, import fails with an
+  unresolved-CLSID error. Confirm the target install before authoring one.</li>
+</ul>
+<p>Shared conventions (universal base keys, expression syntax, labware/position resolution,
+probe/mandrel selection, the variable environment) are the same as for built-in steps and live
+in <a href="biomek-json-authoring-guide.html#doc-step-documentation-00-base-keys-and-conventions-md">Base Keys &amp; Serialization Conventions</a>
+and in <a href="biomek-json-authoring-guide.html#doc-concept-guides-index-md"><code>../concept-guides/</code></a>.</p>
+<hr />
+<h2 id="doc-add-on-steps-index-md--documented-add-on-steps">Documented add-on steps</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th><code>stepType</code></th>
+<th>Requires</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#doc-add-on-steps-87-guided-setup-md">Guided Setup</a></td>
+<td><code>"Guided Labware Setup"</code></td>
+<td>Guided Labware Setup add-on</td>
+<td>Configures the deck at method start with a guided labware placement dialog; loads a named layout, verifies pod configuration, and pauses for operator confirmation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="doc-add-on-steps-index-md--add-on-steps-not-documented-here">Add-on steps not documented here</h2>
+<p>If you need to author an add-on step that this area does not cover, obtain its parameter
+reference from Beckman Coulter — or, for a third-party module, from the add-on's vendor —
+rather than inferring it from an exported method. An add-on step can carry structural or
+parameter requirements that are not evident from a sample export.</p>
+<p class="backtop"><a href="#toc">&uarr; Table of contents</a></p></section><section class="chapter" id="doc-add-on-steps-87-guided-setup-md"><div class="crumb">Add-on Steps &middot; <code>add-on-steps/87-Guided-Setup.md</code></div>
+<h1 id="doc-add-on-steps-87-guided-setup-md--guided-setup">Guided Setup</h1>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stepType</td>
+<td><strong><code>"Guided Labware Setup"</code></strong></td>
+</tr>
+<tr>
+<td>Category</td>
+<td>Leaf (SubStepsReadOnly)</td>
+</tr>
+<tr>
+<td>Terminator</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Compatible Hardware</td>
+<td>All (requires the Guided Labware Setup add-on installed and registered)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Base keys + casing: see <a href="biomek-json-authoring-guide.html#doc-step-documentation-00-base-keys-and-conventions-md">Base Keys &amp; Serialization Conventions</a>.</p>
+<p><strong>Add-on prerequisite.</strong> Guided Setup is an add-on step rather than a built-in, and
+lives in <strong><code>Biomek5GuidedLabwareLib.dll</code></strong>. The target Biomek install <strong>must have this
+library installed and registered</strong> for import to succeed — on a stock Biomek without the
+library, authoring this step fails at import as an unresolved-CLSID error. If the target
+lacks the library, use plain Instrument Setup (see <a href="biomek-json-authoring-guide.html#doc-step-documentation-03-instrument-setup-md">Instrument Setup</a>) instead.
+</p>
+</blockquote>
+<p>The minimal authored form:</p>
+<div class="codehilite" style="background: #f0f0f0"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"stepType"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Guided Labware Setup"</span>,
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"parameters"</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"deck"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"i7 Standard"</span>
+<span style="color: #BBB">  </span>}
+}
+</code></pre></div>
+
+<h2 id="doc-add-on-steps-87-guided-setup-md--behavior-summary">Behavior Summary</h2>
+<p>The Guided Setup step configures the instrument deck at the start of a method run. It verifies pod configuration, loads a named deck layout — preserving labware at any "AsIs" positions and clearing the remaining ones — and runs custom setup scripts. At the end it presents the operator with a guided labware placement dialog, pausing the run for confirmation.</p>
+<p>It is an ordinary registered step — any Biomek install that has the add-on registered can run it, in any method. In the editor it appears on the "Setup &amp; Device Steps" palette. Along the way it also handles labware group management, barcode scanning, deck light control, pod parking, and light curtain/interlock coordination.</p>
+<h2 id="doc-add-on-steps-87-guided-setup-md--parameters-reference-table">Parameters Reference Table</h2>
+<h3 id="doc-add-on-steps-87-guided-setup-md--core-parameters">Core Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Units</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deck</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>Yes</td>
+<td>—</td>
+<td>Deck layout name. Must name a deck layout defined on the instrument.</td>
+</tr>
+<tr>
+<td><code>groups</code></td>
+<td><code>array</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Array of labware group configuration objects. Each group has <code>name</code>, <code>labwareList</code>, and <code>notes</code>.</td>
+</tr>
+<tr>
+<td><code>asIsPositions</code></td>
+<td><code>array</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>[]</code> <em>(empty list)</em></td>
+<td>List of deck position names whose existing labware should be preserved during layout loading.</td>
+</tr>
+<tr>
+<td><code>initialKey</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Setup notes text shown to the operator before confirmation. Supports expression evaluation.</td>
+</tr>
+<tr>
+<td><code>permanentLabware</code></td>
+<td><code>object (dictionary)</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>{}</code> <em>(empty dictionary)</em></td>
+<td>Keyed by deck position name and contains a subdictionary with only the LiquidType key and value associated with the permanent labware at that position. Populated at design time from deck positions that carry the instrument's own permanent-labware flag; the LiquidType may be modified, but no other parameters should be added to the subdictionary for each position. The permanent labware associated with the deck position will be used with the correct liquid type as provided upon import.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doc-add-on-steps-87-guided-setup-md--script-parameters">Script Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Units</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>code</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>""</code></td>
+<td>Custom script code to execute during setup (before labware placement).</td>
+</tr>
+<tr>
+<td><code>isVBScript</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>false</code></td>
+<td>If <code>true</code>, <code>code</code> is VBScript; if <code>false</code>, JavaScript.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doc-add-on-steps-87-guided-setup-md--confirmation-behavior-parameters">Confirmation &amp; Behavior Parameters</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Units</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>confirmSetup?</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>true</code></td>
+<td>If <code>true</code>, pause for operator to confirm deck setup.</td>
+</tr>
+<tr>
+<td><code>verifyPodSetup?</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>true</code></td>
+<td>If <code>true</code>, verify pod configuration before proceeding.</td>
+</tr>
+<tr>
+<td><code>turnDeckLightOn?</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td><code>true</code></td>
+<td>If <code>true</code>, turn on deck light during setup.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doc-add-on-steps-87-guided-setup-md--pod-setup-parameters-nested-inside-podsetup-dictionary">Pod Setup Parameters (nested inside <code>podSetup</code> dictionary)</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Units</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>podSetup</code></td>
+<td><code>object</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Dictionary containing pod configuration to verify.</td>
+</tr>
+<tr>
+<td><code>podSetup.leftHasTips</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Left pod should have tips loaded.</td>
+</tr>
+<tr>
+<td><code>podSetup.rightHasTips</code></td>
+<td><code>boolean</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Right pod should have tips loaded.</td>
+</tr>
+<tr>
+<td><code>podSetup.leftTipType</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Expected left tip type.</td>
+</tr>
+<tr>
+<td><code>podSetup.rightTipType</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Expected right tip type.</td>
+</tr>
+<tr>
+<td><code>podSetup.washLiquidType</code></td>
+<td><code>string</code></td>
+<td>—</td>
+<td>No</td>
+<td>—</td>
+<td>Recognized key name, but <strong>not read by pod verification</strong>. Do not author it; preserve it verbatim if an existing method already carries it.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Scope of <code>podSetup</code> verification.</strong> Runtime pod verification reads exactly four keys:
+<code>leftHasTips</code>, <code>rightHasTips</code>, <code>leftTipType</code>, <code>rightTipType</code>. For each pod it brings the modeled tip
+state in line with those keys and appends a sentence describing the result to the setup
+dialog text the operator sees. Independently of any key, it also releases anything the pod's
+gripper is modeled as holding and, if it was holding something, adds "Ensure the … pod is not
+holding any labware." to that same text.</p>
+<p>Gripper- and tool-verification key names — <code>checkLeftGripper</code>, <code>checkRightGripper</code>,
+<code>leftHasTool</code>, <code>leftToolType</code>, <code>rightHasTool</code>, <code>rightToolType</code>, <code>toolSourceLoc</code>,
+<code>toolSourceSlot</code> — exist as recognized names but are <strong>not</strong> part of runtime pod verification.
+<strong>Do not author them.</strong>
+</p>
+</blockquote>
+<h3 id="doc-add-on-steps-87-guided-setup-md--ui-state-parameters-design-time-only">UI State Parameters (design-time only)</h3>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Units</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>customColors</code></td>
+<td><code>variant list</code></td>
+<td>—</td>
+<td>No</td>
+<td><em>(empty list)</em></td>
+<td>UI color configuration. Editor-written; not read at runtime. Written on every editor save — see the note below the table.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Universal base keys (<code>caption</code>, <code>dynamic?</code>, <code>stepUI</code>, <code>isPreconfigured</code>, …) apply to this step but are omitted here — see <a href="biomek-json-authoring-guide.html#doc-step-documentation-00-base-keys-and-conventions-md">Base Keys &amp; Serialization Conventions</a>. This step can carry <code>caption</code> and <code>isPreconfigured</code>; both are editor state — preserve them verbatim if present, never invent them.</em></p>
+<p><strong>Note — why these keys are Optional but always present in editor-produced steps.</strong> Every parameter documented
+above is written <strong>unconditionally</strong> by the step's editor panel each time the step is saved:
+<code>deck</code>, <code>groups</code>, <code>asIsPositions</code>, <code>initialKey</code>, <code>permanentLabware</code>, <code>code</code>, <code>isVBScript</code>,
+<code>confirmSetup?</code>, <code>verifyPodSetup?</code>, <code>turnDeckLightOn?</code>, <code>podSetup</code>, <code>customColors</code>.
+So a step authored in the editor carries the whole set.</p>
+<p>That is a property of the editor, not a requirement of the run. Enqueue reads every one of
+them through a defaulting accessor or an <code>IsBound</code> guard, so the step still enqueues with any
+of them absent — <code>turnDeckLightOn?</code>, for instance, falls back to <code>true</code>. Keep them all
+Optional, and preserve exactly what an existing method carries when round-tripping — do not
+add a key a method does not already have.</p>
+</blockquote>
+<h2 id="doc-add-on-steps-87-guided-setup-md--labware-group-structure">Labware Group Structure</h2>
+<p>Each element in the <code>groups</code> array is a dictionary with:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Group name (must be unique across all groups)</td>
+</tr>
+<tr>
+<td><code>labwareList</code></td>
+<td><code>array</code></td>
+<td>Labware items in this group. Emit <code>[]</code> when authoring a new group — see below.</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td><code>string</code></td>
+<td>Operator notes for this group</td>
+</tr>
+</tbody>
+</table>
+<h3 id="doc-add-on-steps-87-guided-setup-md--labware-items-do-not-hand-author">Labware items — do not hand-author</h3>
+<p>Each element of <code>labwareList</code> is a <strong>fully serialized labware object</strong>, not a small descriptor. In
+real methods an item carries the labware class reference, position, volume type, per-well amount and
+liquid-type arrays (96+ entries each), a <code>properties</code> sub-dictionary (name, barcode, liquid type,
+device, sense flag), and a set of internal markers that Guided Setup writes itself:</p>
+<table>
+<thead>
+<tr>
+<th>Marker</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_is_brt_lwindex</code></td>
+<td>Internal identity of the item within its group</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>Target deck position (may be an expression)</td>
+</tr>
+<tr>
+<td><code>_is_brt_stackdepth</code></td>
+<td>Stack depth at that position; <code>1</code> is the bottom item</td>
+</tr>
+<tr>
+<td><code>use</code></td>
+<td>Whether the item is used on this run (may be an expression)</td>
+</tr>
+<tr>
+<td><code>wellNotesLine1</code></td>
+<td>Per-well label text shown in the placement dialog</td>
+</tr>
+<tr>
+<td><code>wellColors</code></td>
+<td>Per-well RGB values sent to the display</td>
+</tr>
+<tr>
+<td><code>notes</code></td>
+<td>Operator notes for this item</td>
+</tr>
+<tr>
+<td><code>hasBarcode</code></td>
+<td>Pause for a barcode read on this item</td>
+</tr>
+<tr>
+<td><code>advancedSetup</code></td>
+<td>Item still requires operator setup</td>
+</tr>
+<tr>
+<td><code>_is_brt_valid_pos</code></td>
+<td>Written by the step: whether the resolved position exists on the deck</td>
+</tr>
+<tr>
+<td><code>wellNotesLine2</code></td>
+<td>Per-well "line 2" label text shown in the placement dialog</td>
+</tr>
+<tr>
+<td><code>_is_brt_colorsource</code></td>
+<td>Recognized marker name with no reader or writer in the current step; preserve verbatim if present</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Do not author <code>labwareList</code> entries or any of the above markers by hand</strong> — populated groups are
+produced by the Guided Setup editor, and a partially-formed item will not round-trip. Emit
+<code>"labwareList": []</code> for a new group, and when round-tripping an existing method, preserve every
+labware item and every marker verbatim.</p>
+<h2 id="doc-add-on-steps-87-guided-setup-md--cross-field-validation-rules">Cross-Field Validation Rules</h2>
+<ol>
+<li><code>deck</code> <strong>must not</strong> be empty (fails as a no-deck-selected error).</li>
+<li><code>deck</code> <strong>must</strong> name a deck layout defined on the instrument (fails as a deck-not-defined error).</li>
+<li>All group <code>name</code> values <strong>must be unique</strong> (fails as a duplicate-group-name error).</li>
+<li>If <code>confirmSetup?</code> is <code>false</code> and any labware requires barcode input, the step fails as a
+barcode-requires-confirmation error. Note that this includes labware with the TubeScanRack
+characteristic even if hasBarcode is false. This is <strong>not</strong> a design-time guard: it is raised late
+in the enqueue sequence, after the deck has been loaded, groups processed, and setup scripts run —
+so earlier side effects are already queued when the error surfaces. Author <code>confirmSetup?: true</code>
+whenever any labware carries barcode input.</li>
+</ol>
+<h2 id="doc-add-on-steps-87-guided-setup-md--enqueue-sequence">Enqueue Sequence</h2>
+<ol>
+<li><strong>Setup notes</strong> — Evaluates <code>initialKey</code> as an expression and seeds the operator message with the result.</li>
+<li><strong>Pod speed</strong> — Sets Pod1 and Pod2 speeds to 100 (if present).</li>
+<li><strong>Pod setup verification</strong> — If <code>verifyPodSetup?</code> is <code>true</code> and <code>podSetup</code> is bound, brings the modeled pod state in line with the four tip keys and appends a description to the operator message.</li>
+<li><strong>Deck validation and deck-name warning</strong> — Rejects an empty or undefined <code>deck</code>; then, if the currently-loaded deck has a different name, appends a warning to the operator message. This happens <strong>before</strong> any deck loading, group processing, or script execution.</li>
+<li><strong>Deck loading</strong> — Loads the named deck layout and removes labware from positions that are neither in <code>asIsPositions</code> nor flagged permanent on the deck position itself.</li>
+<li><strong>Labware group processing</strong> — Creates labware groups from <code>groups</code>, validates unique names, fills labware dictionaries.</li>
+<li><strong>Script execution</strong> — Runs custom <code>code</code> script, then any plugin scripts installed at <code>%ProgramData%\Beckman Coulter\Guided Labware Setup\Scripts\*.vbs</code>.</li>
+<li><strong>Barcode/confirmation check</strong> — If <code>confirmSetup?</code> is <code>false</code> and any labware requires barcode input, raises the error described under Cross-Field Validation.</li>
+<li><strong>Deck light</strong> — Sets the deck light to <code>turnDeckLightOn?</code>. Skipped entirely when simulating.</li>
+<li><strong>Pod parking</strong> — Parks Pod1 and Pod2 at their park locations. <strong>Skipped when simulating or when <code>confirmSetup?</code> is <code>false</code>.</strong></li>
+<li><strong>Guided action</strong> — Enqueues the interactive labware-placement dialog (pauses the light curtain/interlock, presents the UI, resumes). <strong>Skipped when simulating or when <code>confirmSetup?</code> is <code>false</code>.</strong></li>
+</ol>
+<p>In simulation the step still evaluates notes, loads the deck, processes groups, and runs scripts — it
+just does not touch the deck light, does not park pods, and does not enqueue the operator dialog.</p>
+<h2 id="doc-add-on-steps-87-guided-setup-md--structural-context">Structural Context</h2>
+<p>This step is a leaf (SubStepsReadOnly — no user-editable sub-steps).</p>
+<h2 id="doc-add-on-steps-87-guided-setup-md--canonical-examples">Canonical Examples</h2>
+<p>Basic guided setup:</p>
+<div class="codehilite" style="background: #f0f0f0"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"stepType"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Guided Labware Setup"</span>,
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"parameters"</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"deck"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"i7 Standard"</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"confirmSetup?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">true</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"verifyPodSetup?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">true</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"turnDeckLightOn?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">true</span>
+<span style="color: #BBB">  </span>}
+}
+</code></pre></div>
+
+<p>Guided setup with groups and AsIs positions:</p>
+<div class="codehilite" style="background: #f0f0f0"><pre style="line-height: 125%;"><span></span><code>{
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"stepType"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Guided Labware Setup"</span>,
+<span style="color: #BBB">  </span><span style="color: #062873; font-weight: bold">"parameters"</span>:<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"deck"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"i5 Span-8"</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"asIsPositions"</span>:<span style="color: #BBB"> </span>[<span style="color: #4070A0">"P1"</span>,<span style="color: #BBB"> </span><span style="color: #4070A0">"P2"</span>],
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"groups"</span>:<span style="color: #BBB"> </span>[
+<span style="color: #BBB">      </span>{
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"name"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Source Plates"</span>,
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"labwareList"</span>:<span style="color: #BBB"> </span>[],
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"notes"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Place source plates in positions P3-P5"</span>
+<span style="color: #BBB">      </span>},
+<span style="color: #BBB">      </span>{
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"name"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Destination Plates"</span>,
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"labwareList"</span>:<span style="color: #BBB"> </span>[],
+<span style="color: #BBB">        </span><span style="color: #062873; font-weight: bold">"notes"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Place destination plates in positions P6-P8"</span>
+<span style="color: #BBB">      </span>}
+<span style="color: #BBB">    </span>],
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"initialKey"</span>:<span style="color: #BBB"> </span><span style="color: #4070A0">"Ensure tip boxes are full before starting."</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"confirmSetup?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">true</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"verifyPodSetup?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">false</span>,
+<span style="color: #BBB">    </span><span style="color: #062873; font-weight: bold">"turnDeckLightOn?"</span>:<span style="color: #BBB"> </span><span style="color: #007020; font-weight: bold">true</span>
+<span style="color: #BBB">  </span>}
+}
+</code></pre></div>
+
+<h2 id="doc-add-on-steps-87-guided-setup-md--common-mistakes">Common Mistakes</h2>
+<ul>
+<li>Disabling confirmation with barcode input: if any labware needs barcode scanning, <code>confirmSetup?</code> must be <code>true</code>. Enqueue rejects the combination outright, and does so <em>after</em> the deck load and setup scripts have already been queued.</li>
+<li>Fabricating <code>podSetup.*</code> gripper/tool keys: pod verification acts on four keys only — <code>leftHasTips</code>, <code>rightHasTips</code>, <code>leftTipType</code>, <code>rightTipType</code>. <code>checkLeftGripper</code>, <code>leftToolType</code>, <code>toolSourceLoc</code> and the rest are recognized names but are not part of verification; <code>washLiquidType</code> is likewise inert. Do not author any of them.</li>
+<li><strong>Hand-authoring a populated <code>groups</code> entry</strong>: labware items are full serialized labware objects with internal markers. Emit <code>"labwareList": []</code> and let the editor populate it; preserve existing items verbatim.</li>
+<li><strong>Assuming the guided dialog always runs</strong>: pod parking and the operator dialog are skipped in simulation and whenever <code>confirmSetup?</code> is <code>false</code>, even though the deck load and scripts still execute.</li>
+</ul>
+<p class="backtop"><a href="#toc">&uarr; Table of contents</a></p></section>
+</div>
+</body></html>
